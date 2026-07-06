@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seb Abecasis — Growth Lead, International (Ramp)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#141414;
+    --grey:#8E8E89;
+    --grey-deep:#5F5F5A;
+    --wash:#F1EFEA;
+    --wash-line:#E4E1DA;
+    --paper:#FFFFFF;
+    --acid:#E4F222;
+    --acid-deep:#B8C700;
+    --dark:#0E1F1D;
+    --sans:'Inter', -apple-system, 'Segoe UI', sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:15px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---------- dark top band ---------- */
+  .topbar{
+    background:var(--dark);
+    color:#fff;
+  }
+  .topbar-in{
+    max-width:1080px;
+    margin:0 auto;
+    padding:14px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:24px;
+  }
+  .topbar .name{
+    font-weight:700;
+    font-size:16px;
+    letter-spacing:-0.01em;
+  }
+  .topbar .meta{
+    font-size:12.5px;
+    color:rgba(255,255,255,.72);
+  }
+  .topbar .meta b{
+    color:var(--acid);
+    font-weight:600;
+  }
+
+  .page{
+    max-width:1080px;
+    margin:0 auto;
+    padding:56px 40px 64px;
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:40px;
+    margin-bottom:28px;
+  }
+  .hero-text{max-width:760px;}
+  .hero-aside{
+    flex:none;
+    width:250px;
+    margin-top:4px;
+  }
+  .hero-portrait{
+    width:128px;
+    height:150px;
+    object-fit:cover;
+    object-position:center top;
+    border-radius:12px;
+    filter:grayscale(1) contrast(1.02);
+    display:block;
+  }
+  /* ---------- quick-scan career card ---------- */
+  .scan{
+    margin-top:16px;
+    border:1px solid var(--wash-line);
+    border-radius:12px;
+    padding:14px 16px 12px;
+    background:var(--paper);
+  }
+  .scan .scan-head{
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--grey);
+    margin-bottom:10px;
+  }
+  .scan ul{list-style:none; margin:0; padding:0;}
+  .scan .job{
+    padding:9px 0;
+    border-top:1px solid var(--wash-line);
+  }
+  .scan .job:first-child{border-top:0; padding-top:0;}
+  .scan .job-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:8px;
+  }
+  .scan .role{
+    font-size:12.5px;
+    font-weight:700;
+    color:var(--ink);
+    letter-spacing:-0.01em;
+    line-height:1.3;
+  }
+  .scan .yr{
+    flex:none;
+    font-size:10.5px;
+    font-weight:600;
+    color:var(--grey);
+    white-space:nowrap;
+  }
+  .scan .note{
+    font-size:11.5px;
+    line-height:1.4;
+    color:var(--grey-deep);
+    margin-top:3px;
+  }
+  .scan .note b{color:var(--ink); font-weight:600;}
+  .display{
+    font-weight:700;
+    font-size:clamp(32px, 4.6vw, 46px);
+    line-height:1.12;
+    letter-spacing:-0.025em;
+  }
+  .display .black{color:var(--ink);}
+  .display .grey{color:var(--grey);}
+  .hero-cta{
+    display:flex;
+    gap:12px;
+    margin-top:26px;
+    align-items:center;
+    flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-block;
+    font-weight:600;
+    font-size:14px;
+    padding:11px 20px;
+    border-radius:8px;
+    text-decoration:none;
+  }
+  .btn-acid{
+    background:var(--acid);
+    color:var(--ink);
+  }
+  .btn-ghost{
+    background:var(--wash);
+    color:var(--ink);
+  }
+  .bridge{
+    margin-top:30px;
+    font-size:15px;
+    color:var(--grey-deep);
+    max-width:560px;
+  }
+  .bridge b{color:var(--ink); font-weight:600;}
+
+  /* ---------- column headers ---------- */
+  .col-heads{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    column-gap:110px;
+    margin:44px 0 18px;
+  }
+  .col-heads .head{
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:var(--grey-deep);
+  }
+  .col-heads .head::before{
+    content:"";
+    width:9px; height:9px;
+    border-radius:2px;
+  }
+  .col-heads .posting::before{background:var(--wash-line); outline:1px solid #D5D2C9;}
+  .col-heads .record::before{background:var(--acid);}
+
+  /* ---------- pairs ---------- */
+  .pairs{position:relative;}
+  svg.wires{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    overflow:visible;
+  }
+  .pair{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    column-gap:110px;
+    margin-bottom:44px;
+    position:relative;
+  }
+  .pair:last-child{margin-bottom:0;}
+
+  .quote{
+    background:var(--wash);
+    border-radius:14px;
+    padding:22px 24px 20px;
+    align-self:start;
+  }
+  .quote .src{
+    font-size:10.5px;
+    font-weight:700;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--grey);
+    margin-bottom:10px;
+  }
+  .quote blockquote{
+    font-weight:500;
+    font-size:16.5px;
+    line-height:1.42;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+  }
+  .quote blockquote::before{content:"\201C";}
+  .quote blockquote::after{content:"\201D";}
+
+  .proof{
+    align-self:start;
+    margin-top:52px;
+    background:var(--paper);
+    border:1px solid var(--wash-line);
+    border-radius:14px;
+    padding:20px 24px 20px;
+    box-shadow:0 1px 3px rgba(20,20,20,.04);
+  }
+  .proof .tag{
+    display:inline-block;
+    font-size:10.5px;
+    font-weight:700;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    color:var(--ink);
+    background:var(--acid);
+    border-radius:6px;
+    padding:4px 10px;
+    margin-bottom:12px;
+  }
+  .proof h3{
+    font-weight:700;
+    font-size:20px;
+    line-height:1.2;
+    letter-spacing:-0.02em;
+    margin-bottom:8px;
+  }
+  .proof p{
+    color:var(--grey-deep);
+    font-size:14.5px;
+  }
+  .proof p + p{margin-top:8px;}
+  .proof strong{color:var(--ink); font-weight:600;}
+
+  /* mobile connector glyph */
+  .drop{
+    display:none;
+    color:var(--acid-deep);
+    font-size:18px;
+    line-height:1;
+    padding:10px 0 10px 24px;
+    font-weight:700;
+  }
+
+  /* ---------- wires: dotted, acid arrowheads ---------- */
+  .wire{
+    fill:none;
+    stroke:#B9B6AD;
+    stroke-width:1.6;
+    stroke-dasharray:1 6;
+    stroke-linecap:round;
+  }
+  .wire-dot{fill:#B9B6AD;}
+  .wire-head{fill:var(--ink);}
+  .wire-head-ring{fill:var(--acid);}
+
+  /* ---------- CV section (from full CV) ---------- */
+  .section-head{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--grey-deep);
+    margin-bottom:16px;
+  }
+  .section-head::before{
+    content:"";
+    width:9px; height:9px;
+    border-radius:2px;
+    background:var(--acid);
+  }
+  .cv-divider{
+    margin:56px 0 0;
+    border:0;
+    border-top:1px solid var(--wash-line);
+    padding-top:44px;
+  }
+  .exp-list{display:flex; flex-direction:column; gap:22px;}
+  .exp-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:16px;
+  }
+  .exp-title{font-size:18px; font-weight:700; letter-spacing:-0.02em;}
+  .exp-title span{color:var(--grey); font-weight:600;}
+  .exp-dates{font-size:12.5px; font-weight:600; color:var(--grey); white-space:nowrap;}
+  .exp-sub{font-size:12.5px; color:var(--grey); margin-top:2px;}
+  .exp-lede{font-size:13.5px; line-height:1.5; color:var(--grey-deep); margin:10px 0 12px;}
+  .exp-bullets{display:flex; flex-direction:column; gap:8px;}
+  .exp-bullets li{display:flex; gap:10px; font-size:14px; line-height:1.5;}
+  .exp-bullets li .dot{flex:none; width:6px; height:6px; border-radius:50%; background:var(--acid); margin-top:8px;}
+  .exp-bullets strong{font-weight:600;}
+  .exp-second{padding-top:20px; border-top:1px solid var(--wash-line);}
+  .exp-muted li{color:var(--grey);}
+  .exp-muted li .dot{background:var(--wash-line);}
+
+  .lower-grid{
+    margin-top:32px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:36px;
+  }
+  .beyond-list{display:flex; flex-direction:column; gap:12px;}
+  .beyond-list .t{font-size:14.5px; font-weight:700; letter-spacing:-0.01em;}
+  .beyond-list p{font-size:13.5px; line-height:1.5; color:var(--grey-deep); margin:2px 0 0;}
+  .beyond-list strong{font-weight:600; color:var(--ink);}
+  .beyond-list .sub{font-weight:normal;}
+
+  /* ---------- footer ---------- */
+  .foot{
+    margin-top:64px;
+    background:var(--dark);
+    border-radius:16px;
+    padding:26px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:24px;
+    color:#fff;
+    flex-wrap:wrap;
+  }
+  .foot .close{
+    font-weight:700;
+    font-size:18px;
+    letter-spacing:-0.01em;
+  }
+  .foot .close span{color:var(--acid);}
+  .foot .contact{
+    font-size:13px;
+    color:rgba(255,255,255,.72);
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 860px){
+    .topbar-in{padding:12px 22px; flex-direction:column; align-items:flex-start; gap:2px;}
+    .page{padding:40px 22px 48px;}
+    .hero{flex-direction:column-reverse; align-items:flex-start; gap:20px;}
+    .col-heads{display:none;}
+    .pair{grid-template-columns:1fr; column-gap:0; margin-bottom:36px;}
+    .proof{margin-top:0;}
+    .drop{display:block;}
+    svg.wires{display:none;}
+    .lower-grid{grid-template-columns:1fr; gap:24px;}
+    .foot{flex-direction:column; align-items:flex-start;}
+  }
+
+  @media print{
+    body{-webkit-print-color-adjust:exact; print-color-adjust:exact;}
+    .page{padding:28px 8px;}
+    .quote,.pair,article{break-inside:avoid;}
+    .pair{margin-bottom:30px;}
+    .proof{margin-top:30px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-in">
+    <div class="name">Seb Abecasis</div>
+    <div class="meta">Application · <b>Growth Lead, International</b> · London, UK</div>
+  </div>
+</div>
+
+<div class="page">
+
+  <header class="hero">
+    <div class="hero-text">
+      <h1 class="display">
+        <span class="black">2× founding-team marketer who bought the company.</span><br>
+        <span class="grey">Three markets at once. AI in every workflow.</span>
+      </h1>
+      <div class="hero-cta">
+        <span class="btn btn-acid">Built without a playbook</span>
+        <span class="btn btn-ghost">London, in person</span>
+      </div>
+      <p class="bridge">Below: <b>five requirements from your posting</b>, each tied to something already done — not something I intend to do. <b>Full CV follows.</b></p>
+    </div>
+    <aside class="hero-aside">
+      <img class="hero-portrait" src="ramp2/portrait.jpeg" alt="Seb Abecasis">
+      <div class="scan">
+        <div class="scan-head">Career</div>
+        <ul>
+          <li class="job">
+            <div class="job-top"><span class="role">Head of Growth — Disciple</span><span class="yr">’23–now</span></div>
+            <div class="note">Turned around the community platform: <b>CAC −70%</b>, repositioned it as the mobile-first community platform, vibecoded the lead-scoring engine.</div>
+          </li>
+          <li class="job">
+            <div class="job-top"><span class="role">Retail Trader</span><span class="yr">’20–’23</span></div>
+            <div class="note">Traded crypto, forex &amp; stocks independently.</div>
+          </li>
+          <li class="job">
+            <div class="job-top"><span class="role">Timewith — 2nd hire</span><span class="yr">’17–’20</span></div>
+            <div class="note">Mental-health startup. Grew blog <b>0→50k</b> organic/mo; therapist base <b>50→400</b>.</div>
+          </li>
+          <li class="job">
+            <div class="job-top"><span class="role">PayPal</span><span class="yr">’16–’17</span></div>
+            <div class="note">Internship in the Growth team.</div>
+          </li>
+        </ul>
+      </div>
+    </aside>
+  </header>
+
+  <div class="col-heads">
+    <span class="head posting">From your posting</span>
+    <span class="head record">From my record</span>
+  </div>
+
+  <main class="pairs" id="pairs">
+    <svg class="wires" id="wires" aria-hidden="true"></svg>
+
+    <!-- 1 · founder mode -->
+    <section class="pair" data-pair>
+      <div class="quote" data-q>
+        <div class="src">Ramp · What you need</div>
+        <blockquote>Founder-mode mentality with proof to back it up — you own outcomes, not deliverables.</blockquote>
+      </div>
+      <div class="drop">↓</div>
+      <div class="proof" data-p>
+        <span class="tag">Ownership</span>
+        <h3>Bought the company.</h3>
+        <p>Part of the management buyout of <strong>Disciple</strong>, then drove it to <strong>net profitability</strong>. Owning the outcome isn’t a mindset I’ve adopted — my capital is in it.</p>
+      </div>
+    </section>
+
+    <!-- 2 · multi-market -->
+    <section class="pair" data-pair>
+      <div class="quote" data-q>
+        <div class="src">Ramp · What you need</div>
+        <blockquote>Track record of driving measurable pipeline growth across more than one market or region at the same time, ideally including at least one of Canada, LATAM, or Europe.</blockquote>
+      </div>
+      <div class="drop">↓</div>
+      <div class="proof" data-p>
+        <span class="tag">Multi-market pipeline</span>
+        <h3>UK, Canada &amp; Australia — simultaneously.</h3>
+        <p>Built the outbound motion from the phones up: made the cold calls myself, codified the script, then hired and ran the SDR team selling across all three markets at once.</p>
+      </div>
+    </section>
+
+    <!-- 3 · AI fluency -->
+    <section class="pair" data-pair>
+      <div class="quote" data-q>
+        <div class="src">Ramp · What you need</div>
+        <blockquote>Demonstrable AI fluency: specific workflows, prompts, or internal tools you’ve built or adopted that materially changed how you work.</blockquote>
+      </div>
+      <div class="drop">↓</div>
+      <div class="proof" data-p>
+        <span class="tag">AI fluency</span>
+        <h3>Already in the loop.</h3>
+        <p>Vibecoded an <strong>LLM-powered lead-scoring engine</strong> feeding our outbound operation — leads in pipe up <strong>100%</strong>.</p>
+        <p>Built the LLM analysis tool <strong>UnHerd</strong> used to investigate algorithmic bias on X.</p>
+      </div>
+    </section>
+
+    <!-- 4 · hands dirty -->
+    <section class="pair" data-pair>
+      <div class="quote" data-q>
+        <div class="src">Ramp · What you’ll do</div>
+        <blockquote>Get your hands dirty. Audit the funnel, write the brief, pull the data, run the experiment.</blockquote>
+      </div>
+      <div class="drop">↓</div>
+      <div class="proof" data-p>
+        <span class="tag">Hands-on</span>
+        <h3>Hands in the plumbing.</h3>
+        <p>Rebuilt the inbound function myself — instrumented the tracking stack, rewired agency feedback loops around funnel data. <strong>CAC down 67%</strong>: the unlock to profitability.</p>
+      </div>
+    </section>
+
+    <!-- 5 · no playbook -->
+    <section class="pair" data-pair>
+      <div class="quote" data-q>
+        <div class="src">Ramp · Fair warning</div>
+        <blockquote>This is not a role for someone who wants a defined playbook. The playbook is what you build.</blockquote>
+      </div>
+      <div class="drop">↓</div>
+      <div class="proof" data-p>
+        <span class="tag">Positioning</span>
+        <h3>I write the playbook.</h3>
+        <p>Ran the customer research that repositioned Disciple against better-funded competitors — from feature parity to owning <strong>the segment they couldn’t serve</strong>: the mobile-first community platform.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== full CV: experience ===== -->
+  <section class="cv-divider">
+    <div class="section-head">Experience</div>
+
+    <div class="exp-list">
+
+      <article>
+        <div class="exp-head">
+          <div class="exp-title">Disciple <span>— Growth Lead (Founding Team)</span></div>
+          <div class="exp-dates">MMM YYYY — Present</div>
+        </div>
+        <div class="exp-sub">Mobile-first community platform · London</div>
+        <p class="exp-lede">Part of the management buyout of Disciple, then drove it to net profitability — my capital is in the outcome.</p>
+        <ul class="exp-bullets">
+          <li><span class="dot"></span><span>Rebuilt the inbound function to <strong>cut CAC 67%</strong>, instrumenting the tracking stack and rewiring agency feedback loops around funnel data.</span></li>
+          <li><span class="dot"></span><span>Built the outbound motion from the phones up and ran the SDR team across the <strong>UK, Canada &amp; Australia</strong> simultaneously.</span></li>
+          <li><span class="dot"></span><span>Vibecoded an end-to-end outbound pipeline — scraping, enrichment and vector embeddings for audience-to-angle matching.</span></li>
+          <li><span class="dot"></span><span>Ran the customer research that <strong>repositioned the company</strong> against better-funded competitors.</span></li>
+        </ul>
+      </article>
+
+      <article class="exp-second">
+        <div class="exp-head">
+          <div class="exp-title">Crypto Trading Sidequest</div>
+          <div class="exp-dates">MMM YYYY — MMM YYYY</div>
+        </div>
+        <div class="exp-sub">Sector · Location</div>
+        <ul class="exp-bullets exp-muted">
+          <li><span class="dot"></span><span>Made <strong>200% on personal capital</strong> over three years.</span></li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===== beyond the day job ===== -->
+  <section class="lower-grid">
+    <div>
+      <div class="section-head">Beyond the day job</div>
+      <ul class="beyond-list">
+        <li>
+          <div class="t">Crypto trading sidequest</div>
+          <p>Made <strong>200% on personal capital</strong> over three years.</p>
+        </li>
+        <li>
+          <div class="t">LLM tooling for journalism</div>
+          <p>Built an X-scraping analysis tool for <strong>UnHerd</strong> to assess whether Musk was biasing the algorithm.</p>
+        </li>
+        <li>
+          <div class="t">Long-suffering golfer<br><span class="sub">8 handicap</span></div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="close">Ready in days, not months. <span>Built without a playbook.</span></div>
+    <div class="contact">seb@odysseus.gtm&nbsp;&nbsp;·&nbsp;&nbsp;London&nbsp;&nbsp;·&nbsp;&nbsp;linkedin.com/in/…</div>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  const svg = document.getElementById('wires');
+  const container = document.getElementById('pairs');
+  const NS = 'http://www.w3.org/2000/svg';
+
+  function draw(){
+    svg.innerHTML = '';
+    if (window.innerWidth <= 860) return;
+    const cRect = container.getBoundingClientRect();
+    const pairs = container.querySelectorAll('[data-pair]');
+
+    pairs.forEach((pair, i) => {
+      const q = pair.querySelector('[data-q]').getBoundingClientRect();
+      const p = pair.querySelector('[data-p]').getBoundingClientRect();
+
+      const x1 = q.right - cRect.left;
+      const y1 = q.top - cRect.top + Math.min(q.height * 0.5, 56);
+      const x2 = p.left - cRect.left - 14;
+      const y2 = p.top - cRect.top + 28;
+
+      const dx = (x2 - x1) * 0.55;
+      const d = `M ${x1} ${y1} C ${x1 + dx} ${y1}, ${x2 - dx} ${y2}, ${x2} ${y2}`;
+
+      const path = document.createElementNS(NS, 'path');
+      path.setAttribute('d', d);
+      path.setAttribute('class', 'wire');
+      svg.appendChild(path);
+
+      const dot = document.createElementNS(NS, 'circle');
+      dot.setAttribute('cx', x1); dot.setAttribute('cy', y1);
+      dot.setAttribute('r', 3);
+      dot.setAttribute('class', 'wire-dot');
+      svg.appendChild(dot);
+
+      // acid ring + dark arrowhead at the landing point
+      const ring = document.createElementNS(NS, 'circle');
+      ring.setAttribute('cx', x2 + 7); ring.setAttribute('cy', y2);
+      ring.setAttribute('r', 8);
+      ring.setAttribute('class', 'wire-head-ring');
+      svg.appendChild(ring);
+
+      const head = document.createElementNS(NS, 'path');
+      const a = 5.5;
+      head.setAttribute('d', `M ${x2 + 11.5} ${y2} l ${-a} ${-a * 0.72} v ${a * 1.44} z`);
+      head.setAttribute('class', 'wire-head');
+      svg.appendChild(head);
+    });
+  }
+
+  window.addEventListener('load', draw);
+  window.addEventListener('resize', () => { clearTimeout(window.__wt); window.__wt = setTimeout(draw, 120); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
+})();
+</script>
+</body>
+</html>
